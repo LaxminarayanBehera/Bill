@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Bill</title>
+    
+</head>
+<body>
+    
+    <div class="Invoice-wrapper" id="print-area">
+        <div class="invoice">
+            <div class="invoice-container">
+                <div class="invoice-head">
+                    <div class="invoice-head-top">
+                        <div class="invoice-head-top-left">
+                            <h1>IMS</h1>
+                        </div>
+                        <div class="invoice-head-top-right">
+                            <h3> Tax <br>
+                                 Invoice</h3>
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="invoice-head-middle">
+                        <div class="invoice-head-middle-left">
+                            <p><span class="text-bold">Name :</span> Laxminarayan Behera</p>
+                            <p><span class="text-bold">Address :</span> KIIT University <br>
+                            Patia, Bhubaneswar <br>
+                    751024</p>
+                            
+                        </div>
+                        <div class="invoice-head-middle-right">
+                            <p><span class="text-bold">Order Id:</span>:2344</p>
+                            <p><span class="text-bold">Date</span>:05/04/2024</p>
+                        </div>
+                    </div>
+
+                    <div class="overflow-view">
+                        <div class="invoice-body">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td class="text-bold">Product Name:</td>
+                                        <td class="text-bold">Rate:</td>
+                                        <td class="text-bold">QTY:</td>
+                                        <td class="text-bold">Amount:</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Mobile</td>
+                                        <td>50000.00</td>
+                                        <td>01</td>
+                                        <td class="text-end">50000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mac Laptop</td>
+                                        <td>150000.00</td>
+                                        <td>05</td>
+                                        <td class="text-end">150000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Headphone </td>
+                                        <td>5000.00</td>
+                                        <td>50</td>
+                                        <td class="text-end">250000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobile</td>
+                                        <td>50000.00</td>
+                                        <td>01</td>
+                                        <td class="text-end">50000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobile</td>
+                                        <td>50000.00</td>
+                                        <td>01</td>
+                                        <td class="text-end">50000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobile</td>
+                                        <td>50000.00</td>
+                                        <td>01</td>
+                                        <td class="text-end">50000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mobile</td>
+                                        <td>50000.00</td>
+                                        <td>01</td>
+                                        <td class="text-end">50000.00</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+
+                            <div class="invoice-body-buttom">
+                                <div class="invoice-body-info-item border-bottom">
+                                    <div class="info-item-td text-end text-bold">
+                                        Grand Total:
+                                    </div>
+                                    <div class="info-item-td text-end">450000.00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="invoice-foot text-center">
+                        <p><span class="text-bold text-center">
+                            NOTE:
+                        </span>This is computer generated recipt
+                         and does not require physical signatuer.</p>
+
+                         <div class="invoice-btns">
+                            <button type="button" class="invoice-btns">
+                                <span>Back</span>
+                            </button>
+                            <button type="button" class="invoice-btns" onclick="printInvoice()">
+                                <span>Print</span>
+                            </button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-------------------css------------------->
+
+
+    <style>
+        ::after
+        ::before{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root{
+            
+        }
+
+        ul{
+            list-style-type: none;
+        }
+
+        ul li{
+            margin:2px 0 ;
+        }
+
+        .text-dark{
+            color: var(--dark-color);
+        }
+        .text-blue{
+            color: var(--blue-color);
+        }
+
+        .text-end{
+            text-align: right;
+        }
+
+        .text-center{
+            text-align: center;
+        }
+
+        .text-start{
+            text-align: left;
+        }
+
+        .text-bold{
+            font-weight: 700;
+        }
+        
+        /*--------hr line --------*/
+
+        .hr{
+            height: 2px;
+            background-color: rgba(0, 0,0, 0.1);
+        }
+
+        .border-bottom{
+            border-bottom:1px solid rgba(0, 0,0, 0.1);
+        }
+
+        body{
+            font-family: 'popins',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--dark-color);
+            font-size: 20px;
+            
+        }
+
+        .invoice-wrapper{
+            min-height: 100vh;
+            background-color: rgba(0, 0,0, 0.1);
+            padding-top: 20px;
+
+        }
+
+        .invoice{
+            max-width: 870px;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: var(--white-color);
+            padding: 70px;
+            border:1px solid black;
+            border-radius: 5px;
+            min-height: 920px;
+        }
+
+        .invoice-head-top-right h3{
+            text-align: right;
+            font-weight: 500;
+            font-size: 27px;
+            color: var(--blue-color);
+        }
+
+        .invoice-head-middle, .invoice-head-bottom{
+            padding: 16px 0;
+        }
+
+        .invoice-head-middle-right{
+            text-align: right;
+        }
+
+        .invoice-body{
+            border: 1px solid black;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .invoice-body table{
+            border-collapse: collapse;
+            border-radius: 4px;
+            width: 100%;
+
+        }
+
+        .invoice-body table td,
+        .invoice-body table th{
+            padding:10px;
+        }
+
+        .invoice-body table tr{
+            border-radius: 1px solid rgba(0, 0,0, 0.1);
+        }
+
+        .invoice-body table thead{
+            background-color: rgba(0, 0,0, 0.3);
+        }
+
+        .invoice-body-info-item{
+            display: grid;
+            grid-template-columns: 80% 20%;
+        }
+
+        .invoice-body-info-item .info-item-td{
+            padding: 12px;
+            background-color: rgba(0, 0,0, 0.1);
+        }
+
+
+        .invoice-foot{
+            padding: 30px 0;
+        }
+
+        .invoice-foot p{
+            font-size: 15px;
+        }
+
+        .invoice-btns{
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .invoice-btns{
+            padding: 3px 9px;
+            font-family: bold;
+            color: var(--dark-color);
+            border-radius: 2px solid black;
+            cursor: pointer;
+        }
+
+        .invoice-head-top,
+        .invoice-head-middle,
+        .invoice-head-bittom{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            padding-bottom: 10px;
+        }
+
+        @media screen and (max-width:992px) {
+            .invoice{
+                padding: 40px;
+            }
+            
+        }
+
+        @media screen and (max-width:576px) {
+            .invoice-head-top,
+            .invoice-head-middel,
+            .invoice-head-bottom{
+                grid-template-columns: repeat(1,1fr);
+
+            }
+            .invoice-head-bottom-right{
+                margin-top: 12px;
+                margin-bottom: 12px;
+            }
+            .invoice *{
+                text-align: left;
+            }
+            .invoice{
+                padding: 28px;
+            }
+        }
+
+        
+
+        @media print{
+            .print-area{
+                visibility: visible;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                overflow: hidden;
+            }
+
+            .overflow-view{
+                overflow-x: hidden;
+            }
+            .invoice-btns{
+                display: none;
+            }
+        }
+
+
+    </style>
+
+
+
+<!----------------javascript---------->
+
+<script>
+
+
+    function printInvoice(){
+        window.print();
+    }
+
+</script>
+    
+</body>
+</html>
